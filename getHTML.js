@@ -1,6 +1,6 @@
 var https = require('https');
 
-function getHTML (options, printHTML) {
+function getHTML (options, callBack) {
 
   /* Add your code here */
   https.get(options, function(response) {
@@ -14,7 +14,7 @@ function getHTML (options, printHTML) {
     });
 
     response.on('end', function (data) {
-      printHTML(allData);
+      callBack(allData);
     });
   });
 }
